@@ -1,12 +1,11 @@
 import React, { FC, useState } from "react";
 
-const buttonClasses = [
+const buttonStyles = [
   "hover:bg-gray-900",
   "hover:text-white",
   "font-bold",
   "py-2",
-  "mx-4",
-  "my-2",
+  "my-1",
   "rounded",
   "uppercase",
   "transition-all",
@@ -14,14 +13,13 @@ const buttonClasses = [
   "rounded-lg",
 ].join(" ");
 
-const pStyles = "p-1";
-
 const inputStyles = [
   "w-full",
   "border-2",
   "rounded-lg",
   "focus:ring-transparent",
-  "p-3",
+  "p-2",
+  "my-1",
 ].join(" ");
 
 const RsvpForm: FC = () => {
@@ -71,7 +69,7 @@ const RsvpForm: FC = () => {
         className={inputStyles}
         required
       />
-      <button type="submit" className={buttonClasses}>
+      <button type="submit" className={buttonStyles}>
         send
       </button>
       {submitted && <h1 className="text-bold">Submission received! Thanks</h1>}
