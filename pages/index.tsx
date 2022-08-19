@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import RsvpForm from "../components/rsvpForm";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,8 @@ const Home: NextPage = () => {
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">Hello Hufi!</h1>
+        <div className="my-6" />
+        <RsvpForm />
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t"></footer>
