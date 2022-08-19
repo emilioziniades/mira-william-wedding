@@ -18,7 +18,7 @@ const buttonClasses = [
 const RsvpForm: FC = () => {
   return (
     <form
-      name="contact"
+      name="rsvp"
       method="POST"
       className="flex flex-col content-center"
       data-netlify="true"
