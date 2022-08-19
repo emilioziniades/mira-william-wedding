@@ -31,7 +31,7 @@ const FormInput: FC<InputProps> = ({
           name={name}
           placeholder={placeholder}
           className={inputStyles + " resize-none"}
-          rows="5"
+          rows={5}
         />
       ) : (
         <input

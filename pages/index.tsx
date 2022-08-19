@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">Hello Hufi!</h1>
+        <h1 className="text-6xl font-bold">Mira and William Wedding</h1>
         <div className="my-6" />
         <RsvpForm />
       </main>
