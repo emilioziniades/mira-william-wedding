@@ -1,5 +1,4 @@
-import { FC } from "react";
-import FormInput from "./formInput";
+import React, { FC, useState } from "react";
 
 const buttonClasses = [
   "hover:bg-gray-900",
@@ -15,24 +14,67 @@ const buttonClasses = [
   "rounded-lg",
 ].join(" ");
 
+const pStyles = "p-1";
+
+const inputStyles = [
+  "w-full",
+  "border-2",
+  "rounded-lg",
+  "focus:ring-transparent",
+  "p-3",
+].join(" ");
+
 const RsvpForm: FC = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => setSubmitted(true))
+      .catch((error) => alert(error));
+  };
+
   return (
     <form
+      id="rsvp-form"
       name="rsvp"
       method="POST"
       className="flex flex-col content-center"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/"
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="rsvp" />
       <input type="hidden" name="bot-field" />
-      <FormInput type="text" name="name" placeholder="Name" required />
-      <FormInput type="email" name="email" placeholder="Email" required />
-      <FormInput type="text" name="subject" placeholder="Subject" />
+      <input
+        type="text"
+        name="name"
+        placeholder="name"
+        className={inputStyles}
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="email"
+        className={inputStyles}
+        required
+      />
+      <input
+        type="text"
+        name="subject"
+        placeholder="subject"
+        className={inputStyles}
+        required
+      />
       <button type="submit" className={buttonClasses}>
-        Send
+        send
       </button>
+      {submitted && <h1 className="text-bold">Submission received! Thanks</h1>}
     </form>
   );
 };
