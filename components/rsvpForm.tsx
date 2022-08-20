@@ -24,7 +24,7 @@ const inputStyles = [
 
 const RsvpForm: FC = () => {
   const maxGuests = 5;
-  const [attending, setAttending] = useState(false);
+  const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(false);
   const [nGuests, setNGuests] = useState(1);
 
