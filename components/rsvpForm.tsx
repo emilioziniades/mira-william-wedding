@@ -24,7 +24,7 @@ const inputStyles = [
 
 const RsvpForm: FC = () => {
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
     let formData = new FormData(e.target);
     fetch("/", {
