@@ -26,7 +26,7 @@ const RsvpForm: FC = () => {
   const maxGuests = 5;
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(false);
-  const [nGuests, setNGuests] = useState(1);
+  const [nGuests, setNGuests] = useState(5);
 
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
