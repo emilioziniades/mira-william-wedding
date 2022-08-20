@@ -1,8 +1,6 @@
-[HOME]() [DETAILS]() [VENUE]() [ACCOMODATION]() [RSVP]() [REGISTRY]()
-
 Image here: decorative images
 
-# William & Mira
+<h1 id="home">William & Mira</h1>
 
 00 | 00 | 0000
 

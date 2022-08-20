@@ -1,4 +1,4 @@
-# ACCOMODATION
+<h1 id=accommodation/>ACCOMODATION</h1>
 
 Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler
 

@@ -1,8 +1,9 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import RsvpForm from "../components/rsvpForm";
 
+import RsvpForm from "../components/rsvpForm";
+import Navbar from "../components/nav";
 import { getMarkdownData } from "../lib/markdown";
 import type { Data } from "../lib/markdown";
 
@@ -37,7 +38,8 @@ const Home: NextPage<Props> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center scroll-smooth">
+        <Navbar />
         <div
           className="prose"
           dangerouslySetInnerHTML={{ __html: landing.content }}
