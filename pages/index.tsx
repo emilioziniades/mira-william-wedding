@@ -53,7 +53,6 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center ">
-        <Navbar />
         <h1 id="home" className="font-sser text-6xl text-wblue mt-[4.3rem]">
           {landing.frontmatter.heading}
         </h1>
