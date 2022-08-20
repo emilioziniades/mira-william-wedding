@@ -18,3 +18,9 @@
   src: local("TimesNewRomanRegular"),
     url("../public/TimesNewRoman.ttf") format("ttf");
 }
+
+@font-face {
+  font-family: "SourceSerifVariable-Roman";
+  src: local("SourceSerifVariable-Roman"),
+    url("../public/SourceSerifVariable-Roman.otf") format("opentype");
+}

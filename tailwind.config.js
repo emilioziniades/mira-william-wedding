@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         helv: "HelveticaNeue",
         times: "TimesNewRomanRegular",
+        sser: "SourceSerifVariable-Roman",
       },
     },
   },

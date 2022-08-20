@@ -40,7 +40,7 @@ const Navbar = () => {
       {navs.map((name) => (
         <a
           href={`#${name}`}
-          className="m-2 uppercase font-bold underline"
+          className="m-2 uppercase font-bold font-helv"
           key={name}
         >
           {name}

@@ -25,6 +25,9 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { landing, details, accommodation, rsvp, gifts } };
 };
 
+const proseStyles =
+  "prose prose-h1:font-sser prose-h1:font-light prose-h1:text-4xl prose-p:font-times prose-h2:font-times prose-a:font-helv";
+
 const Home: NextPage<Props> = ({
   landing,
   details,
@@ -41,36 +44,29 @@ const Home: NextPage<Props> = ({
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center ">
         <Navbar />
-        <div
-          className="prose"
-          dangerouslySetInnerHTML={{ __html: landing.content }}
-        />
+        <h1 id="home" className="font-sser text-6xl">
+          {landing.frontmatter.heading}
+        </h1>
+        <h5 className="font-helv">{landing.frontmatter.date}</h5>
         <Image src={glendirkImage} placeholder="blur" className="-z-50" />
-        <p> straight line border here </p>
         <div
-          className="prose"
+          className={proseStyles}
           dangerouslySetInnerHTML={{ __html: details.content }}
         />
         <div
-          className="prose prose-p:font-times prose-headings:font-helv prose-p:font-bold"
+          className={proseStyles}
           dangerouslySetInnerHTML={{ __html: accommodation.content }}
         />
         <div
-          className="prose prose-p:font-helv prose-headings:font-helv"
-          dangerouslySetInnerHTML={{ __html: accommodation.content }}
-        />
-        <div
-          className="prose"
+          className={proseStyles}
           dangerouslySetInnerHTML={{ __html: rsvp.content }}
         />
         <RsvpForm />
         <div
-          className="prose"
+          className={proseStyles}
           dangerouslySetInnerHTML={{ __html: gifts.content }}
         />
       </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t"></footer>
     </div>
   );
 };
