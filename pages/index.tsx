@@ -3,7 +3,17 @@ import Head from "next/head";
 import Image from "next/image";
 import RsvpForm from "../components/rsvpForm";
 
-const Home: NextPage = () => {
+import { getMarkdownData } from "../lib/markdown";
+
+export async function getStaticProps() {
+  const mdData = await getMarkdownData("info");
+  const data = { ...mdData };
+  return {
+    props: { data: data },
+  };
+}
+
+const Home: NextPage = ({ data }) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -14,6 +24,10 @@ const Home: NextPage = () => {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">Mira and William Wedding</h1>
         <div className="my-6" />
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+        />
         <RsvpForm />
       </main>
 
