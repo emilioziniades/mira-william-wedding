@@ -4,6 +4,6 @@ Image here: decorative images
 
 00 | 00 | 0000
 
-Image here: Glendirk finer sketch
+Image here: Glendirk watercolor
 
 Image here: boarder
