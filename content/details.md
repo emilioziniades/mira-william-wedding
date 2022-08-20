@@ -4,23 +4,23 @@ Filler text filler text filler text filler text filler text filler text filler t
 
 Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text
 
-## SATURDAY
+## DAY
 
 00 | 00 | 0000
 
 ## CEREMONY
 
-Filler test filler text filler text
+Glendirk Estate | Cape Town
 
-filler text filler text filler text filler text filler text filler text filler
+The ceremony will start promptly at 00:00pm. Kindly be seated by 00:00pm.
 
 ## RECEPTION
 
-Filler text
+Glendirk Estate
 
-Time: filler text
+Time: tbc
 
-Dress code: filler text
+Dress code: tbc
 
 Image here: Glendirk watercolor
 
