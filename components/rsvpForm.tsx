@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 const buttonStyles = [
   "hover:bg-gray-900",
@@ -27,6 +27,11 @@ const RsvpForm: FC = () => {
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(false);
   const [nGuests, setNGuests] = useState(5);
+
+  useEffect(() => {
+    setAttending(false);
+    setNGuests(1);
+  }, []);
 
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
