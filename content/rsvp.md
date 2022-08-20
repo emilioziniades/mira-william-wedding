@@ -1,5 +1,5 @@
 <h1 id="rsvp">RSVP</h1>
 
-Kindly RSVP by filler text
+Kindly RSVP by tbc
 
 Form here: RSVP form
