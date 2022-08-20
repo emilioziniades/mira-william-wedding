@@ -26,15 +26,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const proseStyles = [
   "prose",
-  "prose-sm",
+  "prose-md",
   "max-w-none",
   "prose-headings:text-wblue",
   "prose-h1:font-sser",
   "prose-h1:text-6xl",
   "prose-h1:font-extralight",
-  "prose-h1:mt-24",
+  "prose-h1:mt-20",
   "prose-h1:mx-8",
-  "prose-h2:mt-16",
   "prose-h2:mb-2",
   "prose-h2:font-times",
   "prose-h2:font-light",
@@ -43,14 +42,6 @@ const proseStyles = [
   "prose-p:mx-8",
   "prose-p:mt-0",
   "prose-p:mb-0",
-  "prose-a:font-helv",
-  "prose-a:text-wblue",
-  "prose-a:no-underline",
-  "prose-a:border",
-  "prose-a:border-1",
-  "prose-a:border-wblue",
-  "prose-a:p-2",
-  "prose-a:m-8",
 ].join(" ");
 
 const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
@@ -75,24 +66,37 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
           className={proseStyles}
           dangerouslySetInnerHTML={{ __html: details.content }}
         />
-        <a
-          href=""
-          className="uppercase border border-1 border-wblue text-wblue font-helv p-2 my-10 hover:bg-wblue hover:text-white"
-        >
-          get directions
-        </a>
-        <div
-          className={proseStyles}
-          dangerouslySetInnerHTML={{ __html: rsvp.content }}
-        />
-        <RsvpForm />
+        <Btn link="" name="get directions" />
+        <div className="my-16" />
+        <div className="bg-cream w-full">
+          <div
+            className={proseStyles}
+            dangerouslySetInnerHTML={{ __html: rsvp.content }}
+          />
+          <div className="my-10" />
+          <RsvpForm />
+        </div>
+        <div className="my-10" />
         <div
           className={proseStyles}
           dangerouslySetInnerHTML={{ __html: gifts.content }}
         />
+        <div className="my-10" />
+        <Btn link="" name="coming soon!" />
+        <div className="my-36" />
       </main>
     </div>
   );
 };
 
+const Btn = ({ link, name }) => {
+  return (
+    <a
+      href={link}
+      className="uppercase border border-1 border-wblue text-wblue font-helv p-2 my-12 hover:bg-wblue hover:text-white"
+    >
+      {name}
+    </a>
+  );
+};
 export default Home;
