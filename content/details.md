@@ -1,7 +1,6 @@
 <h1 id="details"> FINER DETAILS </h1>
 
-Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text
-
+Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text  
 Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text
 
 ## DAY
@@ -23,5 +22,3 @@ Time: tbc
 Dress code: tbc
 
 Image here: Glendirk watercolor
-
-[GET DIRECTIONS]()

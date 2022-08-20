@@ -94,7 +94,11 @@ const RsvpForm: FC = () => {
             onChange={(e) => setNGuests(parseInt(e.target.value))}
           >
             {[...Array(maxGuests)].map((_, index) => {
-              return <option value={index + 1}>{index + 1}</option>;
+              return (
+                <option value={index + 1} key={index}>
+                  {index + 1}
+                </option>
+              );
             })}
           </select>
           {[...Array(maxGuests)].map((_, index) => {
@@ -106,12 +110,14 @@ const RsvpForm: FC = () => {
                     name={`guest_${index + 1}_name`}
                     placeholder={`guest ${index + 1} name`}
                     className={inputStyles}
+                    key={"guestName" + index.toString()}
                   />
                   <input
                     type="text"
                     name={`guest_${index + 1}_diet`}
                     placeholder={`guest ${index + 1} dietary requirements`}
                     className={inputStyles}
+                    key={"guestFood" + index.toString()}
                   />
                 </>
               )

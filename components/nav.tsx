@@ -33,14 +33,14 @@ const Navbar = () => {
   const navs = ["home", "details", "accommodation", "rsvp", "registry"];
   return (
     <nav
-      className={`active sticky top-0 bg-slate-300 w-screen p-4 ${
+      className={`active sticky top-0 bg-white w-screen p-4 ${
         show && "hidden"
       }`}
     >
       {navs.map((name) => (
         <a
           href={`#${name}`}
-          className="m-2 uppercase font-bold font-helv"
+          className="m-2 uppercase font-bold font-helv text-mblue hover:text-wblue"
           key={name}
         >
           {name}
