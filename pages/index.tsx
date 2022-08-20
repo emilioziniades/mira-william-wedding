@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -88,7 +89,12 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
   );
 };
 
-const Btn = ({ link, name }) => {
+interface BtnProps {
+  link: string;
+  name: string;
+}
+
+const Btn: FC<BtnProps> = ({ link, name }) => {
   return (
     <a
       href={link}
