@@ -24,6 +24,10 @@ const inputStyles = [
 
 const RsvpForm: FC = () => {
   const maxGuests = 5;
+  const [attending, setAttending] = useState(false);
+  const [notAttending, setNotAttending] = useState(false);
+  const [nGuests, setNGuests] = useState(1);
+
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -50,41 +54,71 @@ const RsvpForm: FC = () => {
       <input type="hidden" name="form-name" value="rsvp" />
       <input type="hidden" name="bot-field" />
       <div className="flex flex-row">
-        <input type="checkbox" name="attending" id="attending" />
+        <input
+          type="checkbox"
+          name="attending"
+          id="attending"
+          checked={attending}
+          onChange={() => {
+            setAttending(!attending);
+            setNotAttending(false);
+          }}
+        />
         <label>attending</label>
       </div>
       <div className="flex flex-row">
-        <input type="checkbox" name="not-attending" id="not-attending" />
+        <input
+          type="checkbox"
+          name="not-attending"
+          id="not-attending"
+          checked={notAttending}
+          onChange={() => {
+            setNotAttending(!notAttending);
+            setAttending(false);
+          }}
+        />
         <label>not attending</label>
       </div>
-      <label>Number of guests</label>
-      <select id="numberOfGuests" name="numberOfGuests">
-        {[...Array(maxGuests)].map((_, index) => {
-          return <option value={index + 1}>{index + 1}</option>;
-        })}
-      </select>
-      {[...Array(maxGuests)].map((_, index) => {
-        return (
-          <>
-            <input
-              type="text"
-              name={`guest_${index + 1}_name`}
-              placeholder={`guest ${index + 1} name`}
-              className={inputStyles}
-            />
-            <input
-              type="text"
-              name={`guest_${index + 1}_diet`}
-              placeholder={`guest ${index + 1} dietary requirements`}
-              className={inputStyles}
-            />
-          </>
-        );
-      })}
+      {attending && (
+        <>
+          <label>Number of guests</label>
+          <select
+            id="numberOfGuests"
+            name="numberOfGuests"
+            value={nGuests}
+            onChange={(e) => setNGuests(parseInt(e.target.value))}
+          >
+            {[...Array(maxGuests)].map((_, index) => {
+              return <option value={index + 1}>{index + 1}</option>;
+            })}
+          </select>
+          {[...Array(maxGuests)].map((_, index) => {
+            return (
+              index < nGuests && (
+                <>
+                  <input
+                    type="text"
+                    name={`guest_${index + 1}_name`}
+                    placeholder={`guest ${index + 1} name`}
+                    className={inputStyles}
+                  />
+                  <input
+                    type="text"
+                    name={`guest_${index + 1}_diet`}
+                    placeholder={`guest ${index + 1} dietary requirements`}
+                    className={inputStyles}
+                  />
+                </>
+              )
+            );
+          })}
+        </>
+      )}
       <button type="submit" className={buttonStyles}>
         rsvp
       </button>
       {submitted && <h1 className="text-bold">Submission received! Thanks</h1>}
+      <div className="my-8" />
     </form>
   );
 };
