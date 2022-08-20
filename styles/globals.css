@@ -7,3 +7,14 @@
     scroll-behavior: smooth;
   }
 }
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: local("HelveticaNeue"), url("../public/HelveticaNeue.ttc") format("ttc");
+}
+
+@font-face {
+  font-family: "TimesNewRomanRegular";
+  src: local("TimesNewRomanRegular"),
+    url("../public/TimesNewRoman.ttf") format("ttf");
+}

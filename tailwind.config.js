@@ -5,7 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        helv: "HelveticaNeue",
+        times: "TimesNewRomanRegular",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
