@@ -6,7 +6,10 @@ import html from "remark-html";
 
 const contentDirectory = path.join(process.cwd(), "content");
 
-type Data = any;
+export interface Data {
+  content: string;
+  frontmatter: object;
+}
 
 export async function getMarkdownData(fileName: string): Promise<Data> {
   // read file
@@ -22,5 +25,5 @@ export async function getMarkdownData(fileName: string): Promise<Data> {
     .process(content)
     .then((data) => data.toString());
 
-  return { contentHtml, ...data };
+  return { content: contentHtml, frontmatter: data };
 }

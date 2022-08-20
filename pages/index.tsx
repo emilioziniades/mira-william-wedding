@@ -1,19 +1,17 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import RsvpForm from "../components/rsvpForm";
 
 import { getMarkdownData } from "../lib/markdown";
+import type { Data } from "../lib/markdown";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const mdData = await getMarkdownData("info");
-  const data = { ...mdData };
-  return {
-    props: { data: data },
-  };
-}
+  return { props: mdData };
+};
 
-const Home: NextPage = ({ data }) => {
+const Home: NextPage<Data> = ({ content, frontmatter }) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -22,12 +20,7 @@ const Home: NextPage = ({ data }) => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">Mira and William Wedding</h1>
-        <div className="my-6" />
-        <div
-          className="prose"
-          dangerouslySetInnerHTML={{ __html: data.contentHtml }}
-        />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />
         <RsvpForm />
       </main>
 
