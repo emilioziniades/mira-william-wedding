@@ -11,7 +11,12 @@ const contentDirectory = path.join(process.cwd(), "content");
 
 export interface Data {
   content: string;
-  frontmatter: object;
+  frontmatter: Frontmatter;
+}
+
+interface Frontmatter {
+  heading?: string;
+  date?: string;
 }
 
 export async function getMarkdownData(fileName: string): Promise<Data> {
