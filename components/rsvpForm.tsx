@@ -5,7 +5,11 @@ import { buttonStyles } from "../components/button";
 
 const inputStyles = makeString(["p-2", "my-1"]);
 
-const RsvpForm: FC = () => {
+interface FormProps {
+  submissionMessage: string;
+}
+
+const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
   const maxGuests = 6;
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(true);
@@ -133,12 +137,7 @@ const RsvpForm: FC = () => {
       <button type="submit" className={buttonStyles}>
         rsvp
       </button>
-      {submitted && (
-        <h1 className="text-bold">
-          Submission received! Excited to see you there... or sorry you're not
-          coming
-        </h1>
-      )}
+      {submitted && <h1 className="text-bold">{submissionMessage}</h1>}
       <div className="my-8" />
     </form>
   );

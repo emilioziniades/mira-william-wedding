@@ -165,7 +165,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
               {rsvp.frontmatter.message}
             </p>
             <div className="my-10" />
-            <RsvpForm />
+            <RsvpForm submissionMessage={rsvp.frontmatter.submissionMessage!} />
           </div>
           <div className="my-10" />
           <div
