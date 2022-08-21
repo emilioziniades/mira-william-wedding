@@ -20,12 +20,12 @@ const inputStyles = ["focus:ring-transparent", "p-2", "my-2", "mx-1"].join(" ");
 const RsvpForm: FC = () => {
   const maxGuests = 5;
   const [attending, setAttending] = useState(true);
-  const [notAttending, setNotAttending] = useState(false);
+  const [notAttending, setNotAttending] = useState(true);
   const [nGuests, setNGuests] = useState(5);
-  // TODO CHANGE THIS BACK to false, 1
   useEffect(() => {
-    setAttending(true);
-    setNGuests(5);
+    setAttending(false);
+    setNotAttending(false);
+    setNGuests(1);
   }, []);
 
   const [submitted, setSubmitted] = useState(false);
@@ -105,7 +105,10 @@ const RsvpForm: FC = () => {
             {[...Array(maxGuests)].map((_, index) => {
               return (
                 index < nGuests && (
-                  <div className="flex flex-row items-center">
+                  <div
+                    className="flex flex-row items-center"
+                    key={`guest_${index}`}
+                  >
                     <input
                       type="text"
                       name={`guest_${index + 1}_name`}
