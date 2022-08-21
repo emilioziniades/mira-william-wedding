@@ -18,7 +18,7 @@ const RsvpForm: FC = () => {
   const maxGuests = 6;
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(true);
-  const [nGuests, setNGuests] = useState(5);
+  const [nGuests, setNGuests] = useState(maxGuests);
   useEffect(() => {
     setAttending(false);
     setNotAttending(false);
