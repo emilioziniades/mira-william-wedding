@@ -3,16 +3,7 @@ import React, { FC, useState, useEffect } from "react";
 import { makeString } from "../lib/styling";
 import { buttonStyles } from "../components/button";
 
-const inputStyles = makeString([
-  // "focus:ring",
-  // "focus:ring-2",
-  // "focus:ring-wblue",
-  // "focus:ring-inset",
-  // "focus:ring-offset-transparent",
-  "p-2",
-  "my-1",
-  // "mx-1",
-]);
+const inputStyles = makeString(["p-2", "my-1"]);
 
 const RsvpForm: FC = () => {
   const maxGuests = 6;
@@ -123,7 +114,7 @@ const RsvpForm: FC = () => {
                       name={`guest-${index + 1}-email`}
                       placeholder={`guest ${index + 1} email`}
                       className={inputStyles}
-                      key={"guestName" + index.toString()}
+                      key={"guestEmail" + index.toString()}
                     />
                     <input
                       type="text"
