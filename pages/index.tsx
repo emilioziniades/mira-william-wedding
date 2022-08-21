@@ -5,7 +5,9 @@ import Image from "next/image";
 
 import RsvpForm from "../components/rsvpForm";
 import Navbar from "../components/nav";
+import Button from "../components/button";
 import { getMarkdownData } from "../lib/markdown";
+import { makeString } from "../lib/styling";
 import type { Data } from "../lib/markdown";
 import glendirkImage from "../public/glendirk-watercolor-small.png";
 
@@ -25,7 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { landing, details, rsvp, gifts } };
 };
 
-const proseStyles = [
+const proseStyles = makeString([
   "prose",
   "prose-md",
   "max-w-none",
@@ -35,7 +37,7 @@ const proseStyles = [
   "prose-h1:font-extralight",
   "prose-h1:mt-20",
   "prose-h1:mx-8",
-  "prose-h2:mb-2",
+  "prose-h2:mb-0",
   "prose-h2:font-times",
   "prose-h2:font-light",
   "prose-p:font-times",
@@ -43,7 +45,7 @@ const proseStyles = [
   "prose-p:mx-8",
   "prose-p:mt-0",
   "prose-p:mb-0",
-].join(" ");
+]);
 
 const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
   return (
@@ -54,6 +56,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center ">
+        <Navbar />
         <h1 id="home" className="font-sser text-6xl text-wblue mt-[4.3rem]">
           {landing.frontmatter.heading}
         </h1>
@@ -66,13 +69,18 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
           className={proseStyles}
           dangerouslySetInnerHTML={{ __html: details.content }}
         />
-        <Btn link="" name="get directions" />
+        <Button link="" name="get directions" />
         <div className="my-16" />
         <div className="bg-cream w-full">
-          <div
-            className={proseStyles}
-            dangerouslySetInnerHTML={{ __html: rsvp.content }}
-          />
+          <h1
+            id="rsvp"
+            className="mt-20 font-sser font-extralight text-6xl mx-8 mb-0 text-wblue"
+          >
+            {rsvp.frontmatter.heading}
+          </h1>
+          <p className="text-ash font-times mx-8 my-4">
+            {rsvp.frontmatter.message}
+          </p>
           <div className="my-10" />
           <RsvpForm />
         </div>
@@ -82,26 +90,11 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
           dangerouslySetInnerHTML={{ __html: gifts.content }}
         />
         <div className="my-10" />
-        <Btn link="" name="coming soon!" />
+        <Button link="" name="coming soon!" />
         <div className="my-36" />
       </main>
     </div>
   );
 };
 
-interface BtnProps {
-  link: string;
-  name: string;
-}
-
-const Btn: FC<BtnProps> = ({ link, name }) => {
-  return (
-    <a
-      href={link}
-      className="uppercase border border-1 border-wblue text-wblue font-helv p-2 my-12 hover:bg-wblue hover:text-white"
-    >
-      {name}
-    </a>
-  );
-};
 export default Home;

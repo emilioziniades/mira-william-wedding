@@ -1,21 +1,18 @@
 import React, { FC, useState, useEffect } from "react";
 
-const buttonStyles = [
-  "hover:bg-gray-900",
-  "hover:text-white",
-  "font-bold",
+import { makeString } from "../lib/styling";
+import { buttonStyles } from "../components/button";
+
+const inputStyles = makeString([
+  // "focus:ring",
+  // "focus:ring-2",
+  // "focus:ring-wblue",
+  // "focus:ring-inset",
+  // "focus:ring-offset-transparent",
   "p-2",
   "my-1",
-  "uppercase",
-  "transition-all",
-  "mx-auto",
-  "text-wblue",
-  "border",
-  "border-2",
-  "border-wblue",
-].join(" ");
-
-const inputStyles = ["focus:ring-transparent", "p-2", "my-2", "mx-1"].join(" ");
+  // "mx-1",
+]);
 
 const RsvpForm: FC = () => {
   const maxGuests = 5;
@@ -46,59 +43,56 @@ const RsvpForm: FC = () => {
       id="rsvp-form"
       name="rsvp"
       method="POST"
-      className="flex flex-col content-center text-ash italic"
+      className="flex flex-col font-times text-ash w-1/4 mx-auto p-3"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="rsvp" />
       <input type="hidden" name="bot-field" />
-      <div className="flex flex-row mx-auto items-center">
-        <label>Attending</label>
+      <div className="flex flex-row items-center">
         <input
           type="checkbox"
           name="attending"
           id="attending"
-          className="m-3"
+          className="my-3 mr-3"
           checked={attending}
           onChange={() => {
             setAttending(!attending);
             setNotAttending(false);
           }}
         />
+        <label htmlFor="attending">Attending</label>
       </div>
-      <div className="flex flex-row mx-auto items-center">
-        <label>Not Attending</label>
+      <div className="flex flex-row items-center">
         <input
           type="checkbox"
           name="not-attending"
           id="not-attending"
-          className="m-3"
+          className="my-3 mr-3"
           checked={notAttending}
           onChange={() => {
             setNotAttending(!notAttending);
             setAttending(false);
           }}
         />
+        <label htmlFor="not-attending">Not Attending</label>
       </div>
       {notAttending && (
-        <div className="flex flex-row mx-auto items-center ">
-          <input
-            type="text"
-            name="guest-name-not-attending"
-            placeholder="name(s)"
-            className={inputStyles + " mx-auto"}
-          />
-        </div>
+        <input
+          type="text"
+          name="guest-name-not-attending"
+          placeholder="name(s)"
+          className={inputStyles}
+        />
       )}
       {attending && (
         <>
-          <div className="flex flex-row mx-auto items-center">
-            <label>Number of guests</label>
+          <div className="flex flex-row justify-start items-center">
             <select
               id="numberOfGuests"
               name="number-of-guests"
-              className="m-4"
+              className="my-3 mr-3 align-middle"
               value={nGuests}
               onChange={(e) => setNGuests(parseInt(e.target.value))}
             >
@@ -110,15 +104,13 @@ const RsvpForm: FC = () => {
                 );
               })}
             </select>
+            <label>Number of guests</label>
           </div>
-          <div className="flex flex-col mx-auto">
+          <div className="flex flex-col">
             {[...Array(maxGuests)].map((_, index) => {
               return (
                 index < nGuests && (
-                  <div
-                    className="flex flex-row items-center"
-                    key={`guest_${index}`}
-                  >
+                  <div className="flex flex-col my-1" key={`guest_${index}`}>
                     <input
                       type="text"
                       name={`guest-${index + 1}-name`}
@@ -143,7 +135,12 @@ const RsvpForm: FC = () => {
       <button type="submit" className={buttonStyles}>
         rsvp
       </button>
-      {submitted && <h1 className="text-bold">Submission received! Thanks</h1>}
+      {submitted && (
+        <h1 className="text-bold">
+          Submission received! Excited to see you there... or sorry you're not
+          coming
+        </h1>
+      )}
       <div className="my-8" />
     </form>
   );

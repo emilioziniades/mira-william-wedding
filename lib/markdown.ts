@@ -17,6 +17,7 @@ export interface Data {
 interface Frontmatter {
   heading?: string;
   date?: string;
+  message?: string;
 }
 
 export async function getMarkdownData(fileName: string): Promise<Data> {

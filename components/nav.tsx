@@ -33,7 +33,7 @@ const Navbar = () => {
   const navs = ["home", "details", "accommodation", "rsvp", "registry"];
   return (
     <nav
-      className={`active sticky top-0 bg-white w-screen p-4 ${
+      className={`active sticky top-0 bg-white w-screen p-4 shadow-lg ${
         show && "hidden"
       }`}
     >
