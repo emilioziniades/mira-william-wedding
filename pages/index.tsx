@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -16,15 +15,15 @@ interface Props {
   details: Data;
   accommodation: Data;
   rsvp: Data;
-  gifts: Data;
+  registry: Data;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const landing = await getMarkdownData("landing");
   const details = await getMarkdownData("details");
   const rsvp = await getMarkdownData("rsvp");
-  const gifts = await getMarkdownData("gifts");
-  return { props: { landing, details, rsvp, gifts } };
+  const registry = await getMarkdownData("registry");
+  return { props: { landing, details, rsvp, registry } };
 };
 
 const proseStyles = makeString([
@@ -47,7 +46,7 @@ const proseStyles = makeString([
   "prose-p:mb-0",
 ]);
 
-const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
+const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center w-3/4 mx-auto shadow-lg">
       <Head>
@@ -69,7 +68,10 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
           className={proseStyles}
           dangerouslySetInnerHTML={{ __html: details.content }}
         />
-        <Button link="" name="get directions" />
+        <Button
+          link={details.frontmatter.buttonLink!}
+          name={details.frontmatter.buttonName!}
+        />
         <div className="my-16" />
         <div className="bg-cream w-full">
           <h1
@@ -87,10 +89,13 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, gifts }) => {
         <div className="my-10" />
         <div
           className={proseStyles}
-          dangerouslySetInnerHTML={{ __html: gifts.content }}
+          dangerouslySetInnerHTML={{ __html: registry.content }}
         />
         <div className="my-10" />
-        <Button link="" name="coming soon!" />
+        <Button
+          link={registry.frontmatter.buttonLink!}
+          name={registry.frontmatter.buttonName!}
+        />
         <div className="my-36" />
       </main>
     </div>

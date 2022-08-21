@@ -1,13 +1,22 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { FC } from "react";
 
 const Navbar: FC = () => {
   const navs = ["home", "details", "rsvp", "registry"];
 
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     event.preventDefault();
-    const elem = document.getElementById(event.target.innerHTML);
+    const headingID = event.target.href.split("#")[1];
+    if (headingID == "home") {
+      window.scrollTo(0, 0);
+    }
+    const elem = document.getElementById(headingID);
     const nav = document.getElementById("nav-bar");
-    window.scrollTo(elem.offsetLeft, elem.offsetTop - (nav.offsetHeight + 10));
+    if (nav && elem) {
+      window.scrollTo(
+        elem.offsetLeft,
+        elem.offsetTop - (nav.offsetHeight + 10)
+      );
+    }
   };
 
   return (
