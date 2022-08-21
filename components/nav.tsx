@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 
-const Navbar = () => {
+const Navbar: FC = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     }
   }, [lastScrollY]);
 
-  const navs = ["home", "details", "accommodation", "rsvp", "registry"];
+  const navs = ["home", "details", "rsvp", "registry"];
   return (
     <nav
       className={`active sticky top-0 bg-white w-screen p-4 shadow-lg ${
@@ -40,6 +40,14 @@ const Navbar = () => {
       {navs.map((name) => (
         <a
           href={`#${name}`}
+          onClick={(event) => {
+            event.preventDefault();
+            const elem = document.getElementById(event.target.innerHTML);
+            console.log(elem);
+            window.scrollTo(elem.offsetLeft, elem.offsetTop);
+            setShow(false);
+            setLastScrollY(window.scrollY);
+          }}
           className="m-2 uppercase font-bold font-helv text-mblue hover:text-wblue"
           key={name}
         >
