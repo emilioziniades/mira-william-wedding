@@ -15,7 +15,7 @@ const inputStyles = makeString([
 ]);
 
 const RsvpForm: FC = () => {
-  const maxGuests = 5;
+  const maxGuests = 6;
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(true);
   const [nGuests, setNGuests] = useState(5);
@@ -115,6 +115,13 @@ const RsvpForm: FC = () => {
                       type="text"
                       name={`guest-${index + 1}-name`}
                       placeholder={`guest ${index + 1} name`}
+                      className={inputStyles}
+                      key={"guestName" + index.toString()}
+                    />
+                    <input
+                      type="text"
+                      name={`guest-${index + 1}-email`}
+                      placeholder={`guest ${index + 1} email`}
                       className={inputStyles}
                       key={"guestName" + index.toString()}
                     />
