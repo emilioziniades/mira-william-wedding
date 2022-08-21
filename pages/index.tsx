@@ -15,6 +15,7 @@ import vinesTwo from "../public/vines-02.png";
 import vinesThree from "../public/vines-03.png";
 import vinesFour from "../public/vines-04.png";
 import vinesFive from "../public/vines-05.png";
+import vinesSix from "../public/vines-06.png";
 
 interface Props {
   landing: Data;
@@ -56,12 +57,13 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
   const [headingHeight, setHeadingHeight] = useState(0);
   const [detailsHeight, setDetailsHeight] = useState(0);
   const [rsvpHeight, setRsvpHeight] = useState(0);
+  const [docHeight, setDocHeight] = useState(0);
 
   useEffect(() => {
     setHeadingHeight(document.getElementById("home")?.offsetTop!);
     setDetailsHeight(document.getElementById("details")?.offsetTop!);
     setRsvpHeight(document.getElementById("rsvp")?.offsetTop!);
-    console.log(detailsHeight);
+    setDocHeight(document.getElementById("registry")?.offsetTop!);
   }, []);
   return (
     <>
@@ -109,19 +111,31 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
               position: "absolute",
               zIndex: -1,
               top: `${rsvpHeight}px`,
-              right: "0",
+              left: "0",
             }}
           />
-          <Image
-            src={vinesFive}
-            placeholder="blur"
-            style={{
-              position: "absolute",
-              zIndex: -1,
-              bottom: "0px",
-              left: "0px",
-            }}
-          />
+          {
+            // <Image
+            //   src={vinesFive}
+            //   placeholder="blur"
+            //   style={{
+            //     position: "absolute",
+            //     zIndex: -1,
+            //     bottom: -(docHeight - 400),
+            //     left: 0,
+            //   }}
+            // />
+            // <Image
+            //   src={vinesSix}
+            //   placeholder="blur"
+            //   style={{
+            //     position: "absolute",
+            //     zIndex: -1,
+            //     bottom: 0,
+            //     right: 0,
+            //   }}
+            // />
+          }
           <Navbar />
           <h1 id="home" className="font-sser text-6xl text-wblue mt-[4.3rem]">
             {landing.frontmatter.heading}
@@ -163,7 +177,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             link={registry.frontmatter.buttonLink!}
             name={registry.frontmatter.buttonName!}
           />
-          <div className="my-36" />
+          <div className="my-36" id="bottom" />
         </main>
       </div>
     </>
