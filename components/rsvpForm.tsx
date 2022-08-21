@@ -81,13 +81,23 @@ const RsvpForm: FC = () => {
           }}
         />
       </div>
+      {notAttending && (
+        <div className="flex flex-row mx-auto items-center ">
+          <input
+            type="text"
+            name="guest-name-not-attending"
+            placeholder="name(s)"
+            className={inputStyles + " mx-auto"}
+          />
+        </div>
+      )}
       {attending && (
         <>
           <div className="flex flex-row mx-auto items-center">
             <label>Number of guests</label>
             <select
               id="numberOfGuests"
-              name="numberOfGuests"
+              name="number-of-guests"
               className="m-4"
               value={nGuests}
               onChange={(e) => setNGuests(parseInt(e.target.value))}
@@ -111,14 +121,14 @@ const RsvpForm: FC = () => {
                   >
                     <input
                       type="text"
-                      name={`guest_${index + 1}_name`}
+                      name={`guest-${index + 1}-name`}
                       placeholder={`guest ${index + 1} name`}
                       className={inputStyles}
                       key={"guestName" + index.toString()}
                     />
                     <input
                       type="text"
-                      name={`guest_${index + 1}_diet`}
+                      name={`guest-${index + 1}-diet`}
                       placeholder={`guest ${index + 1} dietary requirements`}
                       className={inputStyles}
                       key={"guestFood" + index.toString()}
