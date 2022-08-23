@@ -3,27 +3,14 @@ buttonName: "get directions"
 buttonLink: ""
 ---
 
-<h1 id="details"> FINER DETAILS </h1>
-
-
-## DAY
-
-00 | 00 | 0000
-
-## CEREMONY
+<h1 id="details"> DETAILS </h1>
 
 Glendirk Estate | Cape Town
 
 Firday 6th January 2023
 
-The ceremony will start promptly at 00:00pm. Kindly be seated by 00:00pm.
+The ceremony will start at 16h00
 
-## RECEPTION
+Reception to follow
 
-Glendirk Estate
-
-Time: tbc
-
-Dress code: tbc
-
-Image here: Glendirk watercolor
+Semi-formal dress code
