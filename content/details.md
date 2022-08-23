@@ -5,8 +5,6 @@ buttonLink: ""
 
 <h1 id="details"> FINER DETAILS </h1>
 
-Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text  
-Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text
 
 ## DAY
 
