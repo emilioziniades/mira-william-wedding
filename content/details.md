@@ -14,6 +14,8 @@ buttonLink: ""
 
 Glendirk Estate | Cape Town
 
+Firday 6th January 2023
+
 The ceremony will start promptly at 00:00pm. Kindly be seated by 00:00pm.
 
 ## RECEPTION
