@@ -1,8 +1,6 @@
 ---
-buttonName: "coming soon"
+buttonName: "coming soon..."
 buttonLink: ""
 ---
 
-<h1 id="registry">GIFT REGISTRY</h1>
-
-Filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text filler text
+<h1 id="registry">REGISTRY</h1>
