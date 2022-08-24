@@ -11,6 +11,7 @@ import type { Data } from "../lib/markdown";
 import glendirkImage from "../public/glendirk-watercolor-small.png";
 import roses from "../public/top-roses.png";
 import rosesBottom from "../public/bottom-rose.png";
+import paintingIcon from "../public/glendirk-watercolor-icon.jpeg";
 
 interface Props {
   landing: Data;
@@ -73,10 +74,13 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
     <div>
       <Head>
         <title>William & Mira</title>
-        <meta name="description" content={landing.content} />
-        <meta property="og:title" content="William & Mira" />
+        <meta name="description" content={landing.frontmatter.ogMessage} />
+        <meta property="og:title" content={landing.frontmatter.ogTitle} />
         <meta property="og:url" content="https://williamandmira.co.za" />
-        <meta property="og:description" content={landing.content} />
+        <meta
+          property="og:description"
+          content={landing.frontmatter.ogMessage}
+        />
         <meta
           property="og:image"
           content="https://www.williamandmira.co.za/public/glendirk-watercolor-icon.jpeg"

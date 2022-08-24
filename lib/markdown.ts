@@ -22,6 +22,8 @@ interface Frontmatter {
   buttonLink?: string;
   submissionMessage?: string;
   location?: string;
+  ogMessage?: string;
+  ogTitle?: string;
 }
 
 export async function getMarkdownData(fileName: string): Promise<Data> {
