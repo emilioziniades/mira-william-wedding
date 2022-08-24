@@ -77,18 +77,23 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
       </Head>
       <main className={globalStyles}>
         <Navbar />
+
         <div className="bg-paper flex flex-col items-center">
-          <Image src={roses} placeholder="blur" className="z-2" />
-          <div className="flex flex-col self-start">
-            <h1 id="home" className="font-crealen text-5xl self-start">
-              {landing.frontmatter.heading}
-            </h1>
-            <h3 className="font-crealen mt-2 tracking-widest text-lg self-start">
-              {landing.frontmatter.date}
-            </h3>
+          <div className="relative pb-16">
+            <Image src={roses} placeholder="blur" className="z-2" />
+            <div className="flex flex-col self-start absolute bottom-0 left-3">
+              <h1 id="home" className="font-crealen text-5xl self-start">
+                {landing.frontmatter.heading}
+              </h1>
+              <h3 className="font-crealen mt-2 tracking-widest text-lg self-start">
+                {landing.frontmatter.date}
+              </h3>
+            </div>
           </div>
           <VerticalLine />
-          <h2 className=" text-lg">{landing.frontmatter.message}</h2>
+          <h2 className=" text-lg leading-loose mx-14">
+            {landing.frontmatter.message}
+          </h2>
           <HorizontalLine />
         </div>
         <div className="flex flex-col items-center">
@@ -166,7 +171,7 @@ const VerticalLine = () => {
 };
 
 const HorizontalLine = () => {
-  return <div className="bg-leaf w-1/5 h-[1px] my-10" />;
+  return <div className="bg-leaf w-1/5 h-[1px] mb-7 mt-1" />;
 };
 
 export default Home;
