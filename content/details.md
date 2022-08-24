@@ -6,5 +6,5 @@ message: >
   The ceremony will start at 16h00
   Reception to follow
 buttonName: "get directions"
-buttonLink: ""
+buttonLink: "https://goo.gl/maps/UdreYap27a5jUuY58"
 ---
