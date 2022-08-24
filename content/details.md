@@ -5,12 +5,10 @@ buttonLink: ""
 
 <h1 id="details"> DETAILS </h1>
 
-Glendirk Estate | Cape Town
+Glen Dirk Estate | Cape Town
 
-Firday 6th January 2023
+Firday the 6th of January 2023
 
 The ceremony will start at 16h00
 
 Reception to follow
-
-Semi-formal dress code
