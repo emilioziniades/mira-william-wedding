@@ -14,7 +14,7 @@ export const buttonStyles = makeString([
   "text-sm",
   "px-4",
   "py-1",
-  "my-12",
+  "my-4",
   "rounded-md",
   "hover:bg-rose",
   "hover:text-paper",

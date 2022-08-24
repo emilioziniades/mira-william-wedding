@@ -42,7 +42,7 @@ const proseStyles = makeString([
   "prose-h2:font-times",
   "prose-h2:font-light",
   "prose-p:font-times",
-  "prose-p:text-ash",
+  "prose-p:text-leaf",
   "prose-p:mx-8",
   "prose-p:mt-0",
   "prose-p:mb-0",
@@ -72,79 +72,90 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
   return (
     <div>
       <Head>
-        <title></title>
+        <title>William & Mira</title>
+        <meta name="description" content={landing.content} />
+        <meta property="og:title" content="William & Mira" />
+        <meta property="og:url" content="https://williamandmira.co.za" />
+        <meta property="og:description" content={landing.content} />
+        <meta
+          property="og:image"
+          content="https://www.williamandmira.co.za/public/glendirk-watercolor-icon.jpeg"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={globalStyles}>
         <Navbar />
 
         <div className="bg-paper flex flex-col items-center">
-          <div className="relative pb-16">
+          <div className="relative pb-14">
             <Image src={roses} placeholder="blur" className="z-2" />
             <div className="flex flex-col self-start absolute bottom-0 left-3">
               <h1 id="home" className="font-crealen text-5xl self-start">
                 {landing.frontmatter.heading}
               </h1>
-              <h3 className="font-crealen mt-2 tracking-widest text-lg self-start">
+              <h3 className="font-crealen tracking-widest text-lg self-start pl-2">
                 {landing.frontmatter.date}
               </h3>
             </div>
           </div>
           <VerticalLine />
-          <h2 className=" text-lg leading-loose mx-14">
-            {landing.frontmatter.message}
-          </h2>
+          <div
+            className={proseStyles}
+            dangerouslySetInnerHTML={{ __html: landing.content }}
+          />
           <HorizontalLine />
         </div>
         <div className="flex flex-col items-center">
-          <h1 id="details" className="font-sser text-3xl">
+          <h1 id="details" className="font-sser text-3xl mt-5">
             {details.frontmatter.heading}
           </h1>
           <VerticalLine />
           <div className="text-xl">
             <div>{details.frontmatter.location}</div>
-            <div>{details.frontmatter.date}</div>
+            <div className="mb-6">{details.frontmatter.date}</div>
           </div>
           <HorizontalLine />
-          <div className="font-avenir font-normal text-md">
-            {details.frontmatter.message}
-          </div>
           <div
             className={proseStyles}
             dangerouslySetInnerHTML={{ __html: details.content }}
           />
-          <Image src={glendirkImage} placeholder="blur" className="z-2" />
+          <Image
+            src={glendirkImage}
+            placeholder="blur"
+            className="z-2 mt-5 px-5"
+          />
           <Button
             link={details.frontmatter.buttonLink!}
             name={details.frontmatter.buttonName!}
           />
           <HorizontalLine />
-          <div className="my-16" />
         </div>
-        <div className="bg-paper w-full py-20 flex flex-col items-center">
+        <div className="bg-paper w-full flex flex-col items-center">
           <div className="bg-white relative m-8 flex flex-col items-center z-10">
-            <div className="bg-paper absolute w-5 h-5 top-0 left-0" />
-            <div className="bg-paper absolute w-5 h-5 top-0 right-0" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0" />
+            <div className="bg-paper absolute w-5 h-5 top-0 left-0 rounded-br-lg" />
+            <div className="bg-paper absolute w-5 h-5 top-0 right-0 rounded-br-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0 rounded-br-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0 rounded-br-lg" />
             <h1
               id="rsvp"
-              className="mt-10 font-sser font-extralight text-3xl mx-8 mb-0"
+              className="mt-5 font-sser font-extralight text-3xl mx-8 mb-0 uppercase"
             >
               {rsvp.frontmatter.heading}
             </h1>
-            <p className="font-times mx-8 my-4">{rsvp.frontmatter.message}</p>
-            <div className="my-10" />
+            <p className="font-times mx-8 my-2 leading-5">
+              {rsvp.frontmatter.message}
+            </p>
             <RsvpForm submissionMessage={rsvp.frontmatter.submissionMessage!} />
           </div>
           <HorizontalLine />
         </div>
         <div className="flex flex-col items-center">
-          <div
-            className={proseStyles}
-            dangerouslySetInnerHTML={{ __html: registry.content }}
-          />
-          <div className="my-10" />
+          <h1
+            id="registry"
+            className="mt-5 font-sser font-extralight text-3xl mx-8 mb-0"
+          >
+            {registry.frontmatter.heading}
+          </h1>
           <VerticalLine />
           <Button
             link={registry.frontmatter.buttonLink!}
@@ -154,8 +165,30 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             <Image src={rosesBottom} placeholder="blur" className="z-2" />
           </div>
         </div>
-        <div className="bg-paper">
-          <h1>Can yu see me?</h1>
+        <div className="bg-paper w-full py-5">
+          <p>
+            by{" "}
+            <a href="https://emilio.co.za" className="underline">
+              Emilio
+            </a>{" "}
+            and Sofia
+          </p>
+          <p className="mt-4 text-xs">
+            Roses:{" "}
+            <a
+              href="https://commons.wikimedia.org/w/index.php?curid=22738450"
+              className="underline"
+            >
+              Hans Simon Holtzbecher
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://commons.wikimedia.org/w/index.php?curid=14953088"
+              className="underline"
+            >
+              Pierre-Joseph Redouté
+            </a>
+          </p>
         </div>
       </main>
     </div>
@@ -164,7 +197,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
 
 const VerticalLine = () => {
   return (
-    <p className="rotate-90 tracking-tighter my-8 text-rose">
+    <p className="rotate-90 tracking-tighter my-7 text-rose">
       {"· · · · · · · ·"}
     </p>
   );

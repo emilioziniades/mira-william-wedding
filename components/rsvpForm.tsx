@@ -3,7 +3,7 @@ import React, { FC, useState, useEffect } from "react";
 import { makeString } from "../lib/styling";
 import { buttonStyles } from "../components/button";
 
-const inputStyles = makeString(["p-2", "my-1"]);
+const inputStyles = makeString(["p-2", "my-1", "bg-paper"]);
 
 interface FormProps {
   submissionMessage: string;
@@ -38,7 +38,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       id="rsvp-form"
       name="rsvp"
       method="POST"
-      className="flex flex-col font-avenir font-light text-ash w-1/4 mx-auto p-3"
+      className="flex flex-col font-avenir font-light text-ash mx-auto p-3"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
@@ -138,7 +138,6 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
         rsvp
       </button>
       {submitted && <h1 className="text-bold">{submissionMessage}</h1>}
-      <div className="my-8" />
     </form>
   );
 };
