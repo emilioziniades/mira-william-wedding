@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import RsvpForm from "../components/rsvpForm";
 import Navbar from "../components/nav";
@@ -32,6 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const proseStyles = makeString([
   "prose",
   "prose-md",
+  "md:prose-xl",
   "max-w-none",
   "prose-headings:text-leaf",
   "prose-h1:font-sser",
@@ -92,21 +93,26 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
 
         <div className="bg-paper flex flex-col items-center">
           <div className="relative pb-14">
-            <Image src={roses} placeholder="blur" className="z-2" />
-            <div className="flex flex-col self-start absolute bottom-0 left-3">
-              <h1 id="home" className="font-crealen text-5xl self-start">
+            <Image src={roses} placeholder="blur" className="z-2" priority />
+            <div className="flex flex-col self-start absolute bottom-0 left-3 md:left-10">
+              <h1
+                id="home"
+                className="font-crealen text-5xl self-start md:text-8xl"
+              >
                 {landing.frontmatter.heading}
               </h1>
-              <h3 className="font-crealen tracking-widest text-lg self-start pl-2">
+              <h3 className="font-crealen tracking-widest text-lg md:text-3xl self-start pl-2">
                 {landing.frontmatter.date}
               </h3>
             </div>
           </div>
           <VerticalLine />
-          <div
-            className={proseStyles}
-            dangerouslySetInnerHTML={{ __html: landing.content }}
-          />
+          <div className="md:my-4">
+            <div
+              className={proseStyles}
+              dangerouslySetInnerHTML={{ __html: landing.content }}
+            />
+          </div>
           <HorizontalLine />
         </div>
         <div className="flex flex-col items-center">
@@ -114,20 +120,20 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             {details.frontmatter.heading}
           </h1>
           <VerticalLine />
-          <div className="text-xl">
+          <div className="text-md md:text-lg">
             <div>{details.frontmatter.location}</div>
             <div className="mb-6">{details.frontmatter.date}</div>
           </div>
           <HorizontalLine />
-          <div
-            className={proseStyles}
-            dangerouslySetInnerHTML={{ __html: details.content }}
-          />
-          <Image
-            src={glendirkImage}
-            placeholder="blur"
-            className="z-2 mt-5 px-5"
-          />
+          <div className="text-sm">
+            <div
+              className={proseStyles}
+              dangerouslySetInnerHTML={{ __html: details.content }}
+            />
+          </div>
+          <div className="mt-5 px-5 md:w-2/3 sm:w-3/4">
+            <Image src={glendirkImage} placeholder="blur" />
+          </div>
           <Button
             link={details.frontmatter.buttonLink!}
             name={details.frontmatter.buttonName!}

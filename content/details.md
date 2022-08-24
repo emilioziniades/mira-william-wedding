@@ -6,6 +6,5 @@ buttonName: "get directions"
 buttonLink: "https://goo.gl/maps/UdreYap27a5jUuY58"
 ---
 
-The ceremony will start at 16h00
-
+The ceremony will start at 16h00  
 Reception to follow

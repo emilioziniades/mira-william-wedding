@@ -11,6 +11,7 @@ interface FormProps {
 
 const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
   const maxGuests = 6;
+  const [message, setMessage] = useState("");
   const [attending, setAttending] = useState(true);
   const [notAttending, setNotAttending] = useState(true);
   const [nGuests, setNGuests] = useState(maxGuests);
@@ -20,16 +21,20 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
     setNGuests(1);
   }, []);
 
-  const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    if (!attending && !notAttending) {
+      setMessage("Please select an option.");
+      return;
+    }
+    console.log(e);
     let formData = new FormData(e.target);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData as any).toString(),
     })
-      .then(() => setSubmitted(true))
+      .then(() => setMessage(submissionMessage))
       .catch((error) => alert(error));
   };
 
@@ -38,7 +43,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       id="rsvp-form"
       name="rsvp"
       method="POST"
-      className="flex flex-col font-avenir font-light text-ash mx-auto p-3"
+      className="flex flex-col font-avenir text-ash mx-auto p-3 w-2/3"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
@@ -79,6 +84,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
           name="guest-name-not-attending"
           placeholder="name(s)"
           className={inputStyles}
+          required
         />
       )}
       {attending && (
@@ -112,6 +118,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
                       placeholder={`guest ${index + 1} name`}
                       className={inputStyles}
                       key={"guestName" + index.toString()}
+                      required
                     />
                     <input
                       type="text"
@@ -119,6 +126,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
                       placeholder={`guest ${index + 1} email`}
                       className={inputStyles}
                       key={"guestEmail" + index.toString()}
+                      required
                     />
                     <input
                       type="text"
@@ -126,6 +134,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
                       placeholder={`guest ${index + 1} dietary requirements`}
                       className={inputStyles}
                       key={"guestFood" + index.toString()}
+                      required
                     />
                   </div>
                 )
@@ -137,7 +146,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       <button type="submit" className={buttonStyles}>
         rsvp
       </button>
-      {submitted && <h1 className="text-bold">{submissionMessage}</h1>}
+      <h1 className="text-bold">{message}</h1>
     </form>
   );
 };
