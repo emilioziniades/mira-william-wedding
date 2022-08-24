@@ -120,7 +120,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
                       required
                     />
                     <input
-                      type="text"
+                      type="email"
                       name={`guest-${index + 1}-email`}
                       placeholder={`guest ${index + 1} email`}
                       className={inputStyles}
