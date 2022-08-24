@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         avenir: "Avenir Next",
-        // hallie: "HallieThompsonSerif",
+        crealen: "CREALEN",
         kannada: "KannadaMN",
       },
       colors: {

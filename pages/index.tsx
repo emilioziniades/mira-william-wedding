@@ -32,9 +32,9 @@ const proseStyles = makeString([
   "prose",
   "prose-md",
   "max-w-none",
-  "prose-headings:text-wblue",
+  "prose-headings:text-leaf",
   "prose-h1:font-sser",
-  "prose-h1:text-6xl",
+  "prose-h1:text-3xl",
   "prose-h1:font-extralight",
   "prose-h1:mt-20",
   "prose-h1:mx-8",
@@ -79,52 +79,29 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         <Navbar />
         <div className="bg-paper flex flex-col items-center">
           <Image src={roses} placeholder="blur" className="z-2" />
-          <h1 id="home" className="font-hallie text-6xl">
-            {landing.frontmatter.heading}
-          </h1>
-          <h5 className="font-hallie mt-2 mb-[2.4rem] tracking-widest text-xl">
-            {landing.frontmatter.date}
-          </h5>
+          <div className="flex flex-col self-start">
+            <h1 id="home" className="font-crealen text-5xl self-start">
+              {landing.frontmatter.heading}
+            </h1>
+            <h3 className="font-crealen mt-2 tracking-widest text-lg self-start">
+              {landing.frontmatter.date}
+            </h3>
+          </div>
           <VerticalLine />
-          <h2 className=" text-4xl">{landing.frontmatter.message}</h2>
+          <h2 className=" text-lg">{landing.frontmatter.message}</h2>
           <HorizontalLine />
         </div>
         <div className="flex flex-col items-center">
-          <h1 id="details" className="font-sser text-6xl mt-[4.3rem]">
+          <h1 id="details" className="font-sser text-3xl">
             {details.frontmatter.heading}
           </h1>
           <VerticalLine />
-          <div className="font-avenir font-black">
-            Hello this is some test text to see if the font weights work
+          <div className="text-xl">
+            <div>{details.frontmatter.location}</div>
+            <div>{details.frontmatter.date}</div>
           </div>
-          <div className="font-avenir font-extrabold">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-bold">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-semibold">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-medium">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-normal">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-light">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-light font-extralight">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div className="font-avenir font-light font-thin">
-            Hello this is some test text to see if the font weights work
-          </div>
-          <div>{details.frontmatter.location}</div>
-          <div>{details.frontmatter.date}</div>
           <HorizontalLine />
-          <div className="font-avenir font-light">
+          <div className="font-avenir font-normal text-md">
             {details.frontmatter.message}
           </div>
           <div
@@ -139,19 +116,24 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
           <HorizontalLine />
           <div className="my-16" />
         </div>
-        <div className="bg-paper">
-          <h1
-            id="rsvp"
-            className="mt-20 font-sser font-extralight text-6xl mx-8 mb-0"
-          >
-            {rsvp.frontmatter.heading}
-          </h1>
-          <p className="font-times mx-8 my-4">{rsvp.frontmatter.message}</p>
-          <div className="my-10" />
-          <RsvpForm submissionMessage={rsvp.frontmatter.submissionMessage!} />
+        <div className="bg-paper w-full py-20 flex flex-col items-center">
+          <div className="bg-white relative m-8 flex flex-col items-center z-10">
+            <div className="bg-paper absolute w-5 h-5 top-0 left-0" />
+            <div className="bg-paper absolute w-5 h-5 top-0 right-0" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0" />
+            <h1
+              id="rsvp"
+              className="mt-10 font-sser font-extralight text-3xl mx-8 mb-0"
+            >
+              {rsvp.frontmatter.heading}
+            </h1>
+            <p className="font-times mx-8 my-4">{rsvp.frontmatter.message}</p>
+            <div className="my-10" />
+            <RsvpForm submissionMessage={rsvp.frontmatter.submissionMessage!} />
+          </div>
           <HorizontalLine />
         </div>
-        <div className="my-10" />
         <div className="flex flex-col items-center">
           <div
             className={proseStyles}
@@ -163,10 +145,12 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             link={registry.frontmatter.buttonLink!}
             name={registry.frontmatter.buttonName!}
           />
-          <Image src={rosesBottom} placeholder="blur" className="z-2" />
+          <div className="w-2/6">
+            <Image src={rosesBottom} placeholder="blur" className="z-2" />
+          </div>
         </div>
         <div className="bg-paper">
-          <h1 className=" ">Can yu see me?</h1>
+          <h1>Can yu see me?</h1>
         </div>
       </main>
     </div>
@@ -174,11 +158,15 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
 };
 
 const VerticalLine = () => {
-  return <div className="border-r-2 border-rose border-dotted h-20"></div>;
+  return (
+    <p className="rotate-90 tracking-tighter my-8 text-rose">
+      {"· · · · · · · ·"}
+    </p>
+  );
 };
 
 const HorizontalLine = () => {
-  return <div className="bg-leaf w-1/5 h-0.5 my-10" />;
+  return <div className="bg-leaf w-1/5 h-[1px] my-10" />;
 };
 
 export default Home;

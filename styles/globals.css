@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "CREALEN";
-  src: local("CREALEN"), url("../public/CREALEN.otf") format("ttf");
+  src: local("CREALEN"), url("../public/CREALEN.otf") format("opentype");
 }
 
 @font-face {
