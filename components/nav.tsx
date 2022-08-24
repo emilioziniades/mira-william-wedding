@@ -13,6 +13,11 @@ const Navbar: FC = () => {
     const elem = document.getElementById(headingID);
     console.log(elem);
     const nav = document.getElementById("nav-bar");
+    const x = elem.offsetLeft;
+    const y = elem.offsetTop - (nav.offsetHeight + 10);
+    console.log(x);
+    console.log(elem.offsetTop);
+    console.log(y);
     if (nav && elem) {
       window.scrollTo(
         elem.offsetLeft,

@@ -11,7 +11,6 @@ import type { Data } from "../lib/markdown";
 import glendirkImage from "../public/glendirk-watercolor-small.png";
 import roses from "../public/top-roses.png";
 import rosesBottom from "../public/bottom-rose.png";
-import paintingIcon from "../public/glendirk-watercolor-icon.jpeg";
 
 interface Props {
   landing: Data;
@@ -141,17 +140,18 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
           <HorizontalLine />
         </div>
         <div className="bg-paper w-full flex flex-col items-center">
+          <div id="rsvp"></div>
           <div className="bg-white relative m-8 flex flex-col items-center z-10">
-            <div className="bg-paper absolute w-5 h-5 top-0 left-0 rounded-br-lg" />
-            <div className="bg-paper absolute w-5 h-5 top-0 right-0 rounded-bl-lg" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0 rounded-tr-lg" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0 rounded-tl-lg" />
             <h1
-              id="rsvp"
+              id="rsvp-fake"
               className="mt-5 font-sser font-extralight text-3xl mx-8 mb-0 uppercase"
             >
               {rsvp.frontmatter.heading}
             </h1>
+            <div className="bg-paper absolute w-5 h-5 top-0 left-0 rounded-br-lg" />
+            <div className="bg-paper absolute w-5 h-5 top-0 right-0 rounded-bl-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0 rounded-tr-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0 rounded-tl-lg" />
             <p className="font-times mx-8 my-2 leading-5">
               {rsvp.frontmatter.message}
             </p>
