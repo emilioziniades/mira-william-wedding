@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         helv: "HelveticaNeue",
-        times: "TimesNewRomanRegular",
-        sser: "SourceSerifVariable-Roman",
+        hallie: "HallieThompsonSerif",
+        kannada: "KannadaMN",
       },
       colors: {
         leaf: "#43412d",

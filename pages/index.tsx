@@ -65,6 +65,7 @@ const globalStyles = makeString([
   "items-center",
   "justify-center",
   "text-center",
+  "font-kannada",
 ]);
 
 const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
@@ -78,10 +79,10 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         <Navbar />
         <div className="bg-paper flex flex-col items-center">
           <Image src={roses} placeholder="blur" className="z-2" />
-          <h1 id="home" className="font-sser text-6xl">
+          <h1 id="home" className="font-hallie text-6xl">
             {landing.frontmatter.heading}
           </h1>
-          <h5 className="font-sser mt-2 mb-[2.4rem] tracking-widest text-xl">
+          <h5 className="font-hallie mt-2 mb-[2.4rem] tracking-widest text-xl">
             {landing.frontmatter.date}
           </h5>
           <VerticalLine />
@@ -93,10 +94,39 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             {details.frontmatter.heading}
           </h1>
           <VerticalLine />
+          <div className="font-helv font-black">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-extrabold">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-bold">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-semibold">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-medium">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-normal">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-light">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-light font-extralight">
+            Hello this is some test text to see if the font weights work
+          </div>
+          <div className="font-helv font-light font-thin">
+            Hello this is some test text to see if the font weights work
+          </div>
           <div>{details.frontmatter.location}</div>
           <div>{details.frontmatter.date}</div>
           <HorizontalLine />
-          <div>{details.frontmatter.message}</div>
+          <div className="font-helv text-8xl">
+            {details.frontmatter.message}
+          </div>
           <div
             className={proseStyles}
             dangerouslySetInnerHTML={{ __html: details.content }}

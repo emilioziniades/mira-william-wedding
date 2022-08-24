@@ -16,13 +16,12 @@
 }
 
 @font-face {
-  font-family: "TimesNewRomanRegular";
-  src: local("TimesNewRomanRegular"),
-    url("../public/TimesNewRoman.ttf") format("ttf");
+  font-family: "HallieThompsonSerif";
+  src: local("HallieThompsonSerif"),
+    url("../public/HallieThompsonSerif.ttf") format("ttf");
 }
 
 @font-face {
-  font-family: "SourceSerifVariable-Roman";
-  src: local("SourceSerifVariable-Roman"),
-    url("../public/SourceSerifVariable-Roman.otf") format("opentype");
+  font-family: "KannadaMN";
+  src: local("KannadaMN"), url("../public/KannadaMN.ttc") format("ttc");
 }

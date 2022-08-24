@@ -1,5 +1,5 @@
 ---
-heading: details
+heading: DETAILS
 location: Glen Dirk Estate | Cape Town
 date: Friday the 6th of January 2023
 message: >
