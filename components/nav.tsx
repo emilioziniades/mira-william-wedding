@@ -6,18 +6,11 @@ const Navbar: FC = () => {
   const handleClick = (event: any) => {
     event.preventDefault();
     const headingID = event.target.href.split("#")[1];
-    console.log(headingID);
     if (headingID == "home") {
       window.scrollTo(0, 0);
     }
     const elem = document.getElementById(headingID);
-    console.log(elem);
     const nav = document.getElementById("nav-bar");
-    const x = elem.offsetLeft;
-    const y = elem.offsetTop - (nav.offsetHeight + 10);
-    console.log(x);
-    console.log(elem.offsetTop);
-    console.log(y);
     if (nav && elem) {
       window.scrollTo(
         elem.offsetLeft,

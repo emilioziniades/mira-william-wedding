@@ -27,7 +27,6 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       setMessage("Please select an option.");
       return;
     }
-    console.log(e);
     let formData = new FormData(e.target);
     fetch("/", {
       method: "POST",
