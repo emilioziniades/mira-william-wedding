@@ -83,7 +83,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         />
         <meta
           property="og:image"
-          content="https://www.williamandmira.co.za/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.bf96b73d.jpeg&w=1920&q=75"
+          content="https://_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg&w=640&q=75"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -137,9 +137,9 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         <div className="bg-paper w-full flex flex-col items-center">
           <div className="bg-white relative m-8 flex flex-col items-center z-10">
             <div className="bg-paper absolute w-5 h-5 top-0 left-0 rounded-br-lg" />
-            <div className="bg-paper absolute w-5 h-5 top-0 right-0 rounded-br-lg" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0 rounded-br-lg" />
-            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0 rounded-br-lg" />
+            <div className="bg-paper absolute w-5 h-5 top-0 right-0 rounded-bl-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 left-0 rounded-tr-lg" />
+            <div className="bg-paper absolute w-5 h-5 bottom-0 right-0 rounded-tl-lg" />
             <h1
               id="rsvp"
               className="mt-5 font-sser font-extralight text-3xl mx-8 mb-0 uppercase"
