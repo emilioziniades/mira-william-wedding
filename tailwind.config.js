@@ -12,10 +12,10 @@ module.exports = {
         sser: "SourceSerifVariable-Roman",
       },
       colors: {
-        wblue: "#333366",
-        mblue: "#818CA5",
-        ash: "#414042",
-        cream: "#F5F1EB",
+        leaf: "#43412d",
+        rose: "#d75a5c",
+        paper: "#faf1ea",
+        vine: "#ccc1a6",
       },
       letterSpacing: {
         widest: ".2em",

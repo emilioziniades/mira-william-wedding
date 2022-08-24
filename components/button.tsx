@@ -6,13 +6,13 @@ export const buttonStyles = makeString([
   "uppercase",
   "border",
   "border-1",
-  "border-wblue",
-  "text-wblue",
+  "border-rose",
+  "text-rose",
   "font-helv",
   "p-2",
   "my-12",
-  "hover:bg-wblue",
-  "hover:text-white",
+  "hover:bg-rose",
+  "hover:text-paper",
 ]);
 
 interface BtnProps {

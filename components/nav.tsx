@@ -28,7 +28,7 @@ const Navbar: FC = () => {
         <a
           href={`#${name}`}
           onClick={handleClick}
-          className="uppercase font-bold font-helv text-mblue hover:text-wblue"
+          className="uppercase font-bold font-helv text-vine hover:text-leaf"
           key={name}
         >
           {name}
