@@ -11,14 +11,13 @@
 }
 
 @font-face {
-  font-family: "HelveticaNeue";
-  src: local("HelveticaNeue"), url("../public/HelveticaNeue.ttc") format("ttc");
+  font-family: "Avenir Next";
+  src: local("Avenir Next"), url("../public/Avenir Next.ttc") format("ttc");
 }
 
 @font-face {
-  font-family: "HallieThompsonSerif";
-  src: local("HallieThompsonSerif"),
-    url("../public/HallieThompsonSerif.ttf") format("ttf");
+  font-family: "CREALEN";
+  src: local("CREALEN"), url("../public/CREALEN.otf") format("ttf");
 }
 
 @font-face {

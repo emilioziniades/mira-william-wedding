@@ -94,37 +94,37 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             {details.frontmatter.heading}
           </h1>
           <VerticalLine />
-          <div className="font-helv font-black">
+          <div className="font-avenir font-black">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-extrabold">
+          <div className="font-avenir font-extrabold">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-bold">
+          <div className="font-avenir font-bold">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-semibold">
+          <div className="font-avenir font-semibold">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-medium">
+          <div className="font-avenir font-medium">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-normal">
+          <div className="font-avenir font-normal">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-light">
+          <div className="font-avenir font-light">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-light font-extralight">
+          <div className="font-avenir font-light font-extralight">
             Hello this is some test text to see if the font weights work
           </div>
-          <div className="font-helv font-light font-thin">
+          <div className="font-avenir font-light font-thin">
             Hello this is some test text to see if the font weights work
           </div>
           <div>{details.frontmatter.location}</div>
           <div>{details.frontmatter.date}</div>
           <HorizontalLine />
-          <div className="font-helv text-8xl">
+          <div className="font-avenir font-light">
             {details.frontmatter.message}
           </div>
           <div

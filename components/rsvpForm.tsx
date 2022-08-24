@@ -38,7 +38,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       id="rsvp-form"
       name="rsvp"
       method="POST"
-      className="flex flex-col font-helv text-ash w-1/4 mx-auto p-3"
+      className="flex flex-col font-avenir font-light text-ash w-1/4 mx-auto p-3"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}

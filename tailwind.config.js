@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        helv: "HelveticaNeue",
-        hallie: "HallieThompsonSerif",
+        avenir: "Avenir Next",
+        // hallie: "HallieThompsonSerif",
         kannada: "KannadaMN",
       },
       colors: {
