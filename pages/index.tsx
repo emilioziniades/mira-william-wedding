@@ -1,7 +1,6 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/future/image";
-import { useEffect, useState } from "react";
 
 import RsvpForm from "../components/rsvpForm";
 import Navbar from "../components/nav";
@@ -10,12 +9,8 @@ import { getMarkdownData } from "../lib/markdown";
 import { makeString } from "../lib/styling";
 import type { Data } from "../lib/markdown";
 import glendirkImage from "../public/glendirk-watercolor-small.png";
-import vinesOne from "../public/vines-01.png";
-import vinesTwo from "../public/vines-02.png";
-import vinesThree from "../public/vines-03.png";
-import vinesFour from "../public/vines-04.png";
-import vinesFive from "../public/vines-05.png";
-import vinesSix from "../public/vines-06.png";
+import roses from "../public/top-roses.png";
+import rosesBottom from "../public/bottom-rose.png";
 
 interface Props {
   landing: Data;
@@ -54,105 +49,47 @@ const proseStyles = makeString([
 ]);
 
 const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
-  const [headingHeight, setHeadingHeight] = useState(0);
-  const [detailsHeight, setDetailsHeight] = useState(0);
-  const [rsvpHeight, setRsvpHeight] = useState(0);
-  const [docHeight, setDocHeight] = useState(0);
-
-  useEffect(() => {
-    setHeadingHeight(document.getElementById("home")?.offsetTop!);
-    setDetailsHeight(document.getElementById("details")?.offsetTop!);
-    setRsvpHeight(document.getElementById("rsvp")?.offsetTop!);
-    setDocHeight(document.getElementById("registry")?.offsetTop!);
-  }, []);
   return (
     <>
-      <div className="flex bg-white min-h-screen flex-col items-center justify-center w-3/4 mx-auto shadow-lg z-1">
+      <div className="flex bg-white min-h-screen flex-col items-center justify-center mx-auto shadow-lg z-1">
         <Head>
           <title></title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main className="flex w-full flex-1 flex-col items-center justify-center text-center ">
-          <Image
-            src={vinesOne}
-            placeholder="blur"
-            style={{
-              position: "absolute",
-              zIndex: -1,
-              top: `${headingHeight}px`,
-              left: "0",
-            }}
-          />
-          <Image
-            src={vinesTwo}
-            placeholder="blur"
-            style={{
-              position: "absolute",
-              zIndex: -1,
-              top: "0",
-              right: "0",
-            }}
-          />
-          <Image
-            src={vinesThree}
-            placeholder="blur"
-            style={{
-              position: "absolute",
-              zIndex: -1,
-              top: `${detailsHeight + 200}px`,
-              right: "0",
-            }}
-          />
-          <Image
-            src={vinesFour}
-            placeholder="blur"
-            style={{
-              position: "absolute",
-              zIndex: -1,
-              top: `${rsvpHeight}px`,
-              left: "0",
-            }}
-          />
-          {
-            // <Image
-            //   src={vinesFive}
-            //   placeholder="blur"
-            //   style={{
-            //     position: "absolute",
-            //     zIndex: -1,
-            //     bottom: -(docHeight - 400),
-            //     left: 0,
-            //   }}
-            // />
-            // <Image
-            //   src={vinesSix}
-            //   placeholder="blur"
-            //   style={{
-            //     position: "absolute",
-            //     zIndex: -1,
-            //     bottom: 0,
-            //     right: 0,
-            //   }}
-            // />
-          }
           <Navbar />
+          <Image src={roses} placeholder="blur" className="z-2" />
           <h1 id="home" className="font-sser text-6xl text-wblue mt-[4.3rem]">
             {landing.frontmatter.heading}
           </h1>
           <h5 className="font-sser text-mblue mt-2 mb-[2.4rem] tracking-widest text-xl">
             {landing.frontmatter.date}
           </h5>
-          <Image src={glendirkImage} placeholder="blur" className="z-2" />
-          <div className="bg-mblue w-4/5 h-0.5 my-10" />
+          <div className="border-r-4 border-red-300 border-dotted h-20" />
+          <h2 className=" text-4xl ">{landing.frontmatter.message}</h2>
+          <div className="bg-mblue w-1/5 h-0.5 my-10" />
+          <h1
+            id="details"
+            className="font-sser text-6xl text-wblue mt-[4.3rem]"
+          >
+            {details.frontmatter.heading}
+          </h1>
+          <div className="border-r-4 border-red-300 border-dotted h-20" />
+          <div>{details.frontmatter.location}</div>
+          <div>{details.frontmatter.date}</div>
+          <div className="bg-mblue w-1/5 h-0.5 my-10" />
+          <div>{details.frontmatter.message}</div>
           <div
             className={proseStyles}
             dangerouslySetInnerHTML={{ __html: details.content }}
           />
+          <Image src={glendirkImage} placeholder="blur" className="z-2" />
           <Button
             link={details.frontmatter.buttonLink!}
             name={details.frontmatter.buttonName!}
           />
+          <div className="bg-mblue w-1/5 h-0.5 my-10" />
           <div className="my-16" />
           <div className="bg-cream w-full">
             <h1
@@ -166,6 +103,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             </p>
             <div className="my-10" />
             <RsvpForm submissionMessage={rsvp.frontmatter.submissionMessage!} />
+            <div className="bg-mblue w-1/5 h-0.5 my-10" />
           </div>
           <div className="my-10" />
           <div
@@ -173,10 +111,12 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             dangerouslySetInnerHTML={{ __html: registry.content }}
           />
           <div className="my-10" />
+          <div className="border-r-4 border-red-300 border-dotted h-20" />
           <Button
             link={registry.frontmatter.buttonLink!}
             name={registry.frontmatter.buttonName!}
           />
+          <Image src={rosesBottom} placeholder="blur" className="z-2" />
           <div className="my-36" id="bottom" />
         </main>
       </div>
