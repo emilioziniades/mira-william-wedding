@@ -178,7 +178,12 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         <div className="bg-paper w-full py-5">
           <p>
             by{" "}
-            <a href="https://emilio.co.za" className="underline">
+            <a
+              href="https://emilio.co.za"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Emilio
             </a>{" "}
             and Sofia
@@ -187,6 +192,8 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             Roses:{" "}
             <a
               href="https://commons.wikimedia.org/w/index.php?curid=22738450"
+              target="_blank"
+              rel="noopener noreferrer"
               className="underline"
             >
               Hans Simon Holtzbecher
@@ -194,6 +201,8 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             and{" "}
             <a
               href="https://commons.wikimedia.org/w/index.php?curid=14953088"
+              target="_blank"
+              rel="noopener noreferrer"
               className="underline"
             >
               Pierre-Joseph Redouté

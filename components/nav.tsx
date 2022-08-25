@@ -21,14 +21,14 @@ const Navbar: FC = () => {
 
   return (
     <nav
-      className="active sticky top-0 bg-white w-screen p-4 shadow-lg flex flex-row justify-around z-20"
+      className="active sticky top-0 bg-white w-screen p-4 shadow-lg flex flex-row justify-around md:justify-center z-20"
       id="nav-bar"
     >
       {navs.map((name) => (
         <a
           href={`#${name}`}
           onClick={handleClick}
-          className="uppercase font-normal font-avenir text-vine hover:text-leaf"
+          className="uppercase font-normal font-avenir text-vine hover:text-leaf md:mx-16"
           key={name}
         >
           {name}

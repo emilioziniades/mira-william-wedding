@@ -27,7 +27,12 @@ interface BtnProps {
 
 const Button: FC<BtnProps> = ({ link, name }) => {
   return (
-    <a href={link} className={buttonStyles}>
+    <a
+      href={link}
+      className={buttonStyles}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {name}
     </a>
   );
