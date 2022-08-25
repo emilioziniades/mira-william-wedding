@@ -83,7 +83,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
         />
         <meta
           property="og:image"
-          content="https://_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg&w=640&q=75"
+          content="https://williamandmira.co.za/_ipx/w_640,q_75/%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg&w=640&q=75"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
