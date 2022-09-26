@@ -1,5 +1,5 @@
 ---
 heading: rsvp
-message: Kindly RSVP by the 1st of October 2022
+message: Kindly RSVP by the 10th of October 2022
 submissionMessage: Submission received!
 ---
