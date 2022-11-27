@@ -124,6 +124,8 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             <div className="mb-6">{details.frontmatter.date}</div>
           </div>
           <HorizontalLine />
+          <div className="mb-5">{details.frontmatter.dressCodeDescription}</div>
+          <HorizontalLine />
           <div className="text-sm">
             <div
               className={proseStyles}
@@ -167,10 +169,20 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             {registry.frontmatter.heading}
           </h1>
           <VerticalLine />
-          <Button
-            link={registry.frontmatter.buttonLink!}
-            name={registry.frontmatter.buttonName!}
+          <div
+            className={proseStyles}
+            dangerouslySetInnerHTML={{ __html: registry.content }}
           />
+          <div className="flex flex-row space-x-4">
+            <Button
+              link={registry.frontmatter.buttonLink!}
+              name={registry.frontmatter.buttonName!}
+            />
+            <Button
+              link={registry.frontmatter.buttonLink2!}
+              name={registry.frontmatter.buttonName2!}
+            />
+          </div>
           <div className="w-2/6">
             <Image src={rosesBottom} placeholder="blur" className="z-2" />
           </div>

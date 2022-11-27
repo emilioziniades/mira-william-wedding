@@ -20,10 +20,13 @@ interface Frontmatter {
   message?: string;
   buttonName?: string;
   buttonLink?: string;
+  buttonName2?: string;
+  buttonLink2?: string;
   submissionMessage?: string;
   location?: string;
   ogMessage?: string;
   ogTitle?: string;
+  dressCodeDescription?: string;
 }
 
 export async function getMarkdownData(fileName: string): Promise<Data> {
