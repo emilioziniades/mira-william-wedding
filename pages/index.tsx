@@ -18,6 +18,7 @@ interface Props {
   accommodation: Data;
   rsvp: Data;
   registry: Data;
+  directions: Data;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -25,7 +26,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const details = await getMarkdownData("details");
   const rsvp = await getMarkdownData("rsvp");
   const registry = await getMarkdownData("registry");
-  return { props: { landing, details, rsvp, registry } };
+  const directions = await getMarkdownData("directions");
+  return { props: { landing, details, rsvp, registry, directions } };
 };
 
 const proseStyles = makeString([
@@ -49,6 +51,28 @@ const proseStyles = makeString([
   "prose-p:mb-0",
 ]);
 
+const proseStylesSmall = makeString([
+  "prose",
+  "prose-sm",
+  "md:prose-md",
+  "max-w-none",
+  "prose-headings:text-leaf",
+  "prose-h1:font-sser",
+  "prose-h1:text-3xl",
+  "prose-h1:font-extralight",
+  "prose-h1:mt-20",
+  "prose-h1:mx-8",
+  "prose-h2:mb-0",
+  "prose-h2:font-times",
+  "prose-h2:font-light",
+  "prose-p:font-times",
+  "prose-p:text-leaf",
+  "prose-p:mx-8",
+  "prose-p:mt-0",
+  "prose-p:mb-0",
+  // "md: w-1/2",
+]);
+
 const globalStyles = makeString([
   "text-leaf",
   "flex",
@@ -69,7 +93,13 @@ const globalStyles = makeString([
   "font-kannada",
 ]);
 
-const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
+const Home: NextPage<Props> = ({
+  landing,
+  details,
+  rsvp,
+  registry,
+  directions,
+}) => {
   return (
     <div>
       <Head>
@@ -141,6 +171,12 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
             link={details.frontmatter.buttonLink!}
             name={details.frontmatter.buttonName!}
           />
+          <div className="flex flex-col items-center mb-3">
+            <div
+              className={proseStylesSmall}
+              dangerouslySetInnerHTML={{ __html: directions.content }}
+            />
+          </div>
           <HorizontalLine />
         </div>
         <div className="bg-paper w-full flex flex-col items-center">
@@ -172,7 +208,7 @@ const Home: NextPage<Props> = ({ landing, details, rsvp, registry }) => {
           </h1>
           <VerticalLine />
           <div
-            className={proseStyles + " md:w-1/2"}
+            className={proseStyles + " md:w-1/2 md:prose-sm"}
             dangerouslySetInnerHTML={{ __html: registry.content }}
           />
           <div className="flex sm:flex-row flex-col justify-around sm:space-x-8">
