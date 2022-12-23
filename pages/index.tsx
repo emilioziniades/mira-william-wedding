@@ -53,8 +53,7 @@ const proseStyles = makeString([
 
 const proseStylesSmall = makeString([
   "prose",
-  "prose-sm",
-  "md:prose-md",
+  "prose-md",
   "max-w-none",
   "prose-headings:text-leaf",
   "prose-h1:font-sser",
@@ -70,7 +69,6 @@ const proseStylesSmall = makeString([
   "prose-p:mx-8",
   "prose-p:mt-0",
   "prose-p:mb-0",
-  // "md: w-1/2",
 ]);
 
 const globalStyles = makeString([
