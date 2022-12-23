@@ -169,12 +169,10 @@ const Home: NextPage<Props> = ({
             link={details.frontmatter.buttonLink!}
             name={details.frontmatter.buttonName!}
           />
-          <div className="flex flex-col items-center mb-3">
-            <div
-              className={proseStylesSmall}
-              dangerouslySetInnerHTML={{ __html: directions.content }}
-            />
-          </div>
+          <div
+            className={proseStylesSmall + " mb-4"}
+            dangerouslySetInnerHTML={{ __html: directions.content }}
+          />
           <HorizontalLine />
         </div>
         <div className="bg-paper w-full flex flex-col items-center">
