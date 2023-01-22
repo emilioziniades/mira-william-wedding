@@ -27,6 +27,8 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       setMessage("Please select an option.");
       return;
     }
+    setMessage(submissionMessage);
+    /*
     let formData = new FormData(e.target);
     fetch("/", {
       method: "POST",
@@ -35,6 +37,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
     })
       .then(() => setMessage(submissionMessage))
       .catch((error) => alert(error));
+    */
   };
 
   return (
@@ -145,7 +148,7 @@ const RsvpForm: FC<FormProps> = ({ submissionMessage }) => {
       <button type="submit" className={buttonStyles}>
         rsvp
       </button>
-      <h1 className="text-bold">{message}</h1>
+      <h1 className="text-bold max-w-sm">{message}</h1>
     </form>
   );
 };
