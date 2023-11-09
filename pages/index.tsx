@@ -104,14 +104,14 @@ const Home: NextPage<Props> = ({
         <title>William & Mira</title>
         <meta name="description" content={landing.frontmatter.ogMessage} />
         <meta property="og:title" content={landing.frontmatter.ogTitle} />
-        <meta property="og:url" content="https://williamandmira.co.za" />
+        <meta property="og:url" content="https://williamandmira.emilio.co.za" />
         <meta
           property="og:description"
           content={landing.frontmatter.ogMessage}
         />
         <meta
           property="og:image"
-          content="https://williamandmira.co.za/_ipx/w_640,q_75/%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg&w=640&q=75"
+          content="https://williamandmira.emilio.co.za/_ipx/w_640,q_75/%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg?url=%2F_next%2Fstatic%2Fmedia%2Fglendirk-watercolor-icon.1a4150ca.jpeg&w=640&q=75"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
